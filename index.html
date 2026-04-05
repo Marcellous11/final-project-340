@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Space Tales</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/space.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="hero-eyebrow">NASA APOD × NEWSAPI</p>
+        <h1 class="hero-title">The <span>Daily</span> Universe</h1>
+        <p class="hero-sub">
+          Pick any date in history. See what the universe revealed that day —
+          and what humanity was worried about.
+        </p>
+
+        <div class="picker-wrap">
+          <div class="picker-inner">
+            <span class="picker-lable">SELECT A DATE IN HISTORY</span>
+            <input type="date" id="datePicker" />
+          </div>
+          <button class="bt" id="exploreBtn">Explore this date</button>
+        </div>
+      </section>
+
+      <div class="space-divider" id="divider">
+        <div class="divider-line"></div>
+        <span class="divider-date" id="dividerDate"></span>
+        <div class="divider-line"></div>
+      </div>
+
+      <!--Space imaage results  -->
+      <div class="grid" id="grid">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-tag">ASTRONOMY PICTURE OF THE DAY</span>
+          </div>
+          <div class="card-body" id="apodBody">
+            <div class="state-box"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-tag">ON THIS DAY IN HISTORY</span>
+          </div>
+          <div class="card-body" id="newsBody">
+            <div class="state-box"></div>
+          </div>
+        </div>
+
+
+      </div>
+    </main>
+    <footer>
+      Powered by <span>NASA APOD API</span> + <span>Wikipedia On This Day</span>
+    </footer>
+    <script src="/scripts/space.js" async defer></script>
+  </body>
+</html>
