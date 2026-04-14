@@ -97,16 +97,20 @@ async function RenderPage() {
 
 exploreBtn.addEventListener("click", async () => {
   let date = dateInput.value || "1996-09-24";
-  console.log("click")
-  const spaceData = await GetSpaceData(date);
-  console.log("NASA OK", spaceData);
-  const newsData = await GetNewsData(date);
-  console.log("Wikipedia OK", newsData);
+  exploreBtn.textContent = "Loading...";
+  exploreBtn.disabled = true;
+  try {
+    const spaceData = await GetSpaceData(date);
+    const newsData = await GetNewsData(date);
 
-  sessionStorage.setItem("spaceData", JSON.stringify(spaceData));
-  sessionStorage.setItem("newsData", JSON.stringify(newsData));
+    sessionStorage.setItem("spaceData", JSON.stringify(spaceData));
+    sessionStorage.setItem("newsData", JSON.stringify(newsData));
 
-  RenderPage();
+    RenderPage();
+  } finally {
+    exploreBtn.textContent = "Explore this date";
+    exploreBtn.disabled = false;
+  }
 });
 
 RenderPage();

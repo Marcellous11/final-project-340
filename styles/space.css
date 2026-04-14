@@ -17,6 +17,10 @@
     color: var(--dim);
 }
 
+h1,h1 * {
+    font-family: var(--mono);
+}
+
 .hero-eyebrow,footer, footer > *{
     color: var(--teal);
 }
@@ -40,6 +44,7 @@
 .grid {
   display: flex;
   max-width: 1000px;
+  justify-content: space-around;
   margin: 0 auto;
   gap: 1.5rem;
   margin-bottom: 20px;
