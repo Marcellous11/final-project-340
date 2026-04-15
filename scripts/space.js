@@ -1,4 +1,4 @@
-const NASA_KEY = "cSle6kEdSzMgZbLkmbGnDkJphl8GfzGOrmRG5vJR"; // api.nasa.gov — replace with your real key
+const NASA_KEY = 'ht4DD3BhaYAIa3DMgS1zho1ORVIQfG9JZO0QnSEJ';
 const exploreBtn = document.querySelector("#exploreBtn");
 const dateInput = document.querySelector("#datePicker");
 
