@@ -95,6 +95,13 @@ async function RenderPage() {
   }
 }
 
+function showError(message) {
+  const spaceCard = document.querySelector(".space-card");
+  const newsCard = document.querySelector(".news-card");
+  spaceCard.innerHTML = `<p class="api-error">${message}</p>`;
+  newsCard.innerHTML = "";
+}
+
 exploreBtn.addEventListener("click", async () => {
   let date = dateInput.value || "1996-09-24";
   exploreBtn.textContent = "Loading...";
@@ -107,6 +114,16 @@ exploreBtn.addEventListener("click", async () => {
     sessionStorage.setItem("newsData", JSON.stringify(newsData));
 
     RenderPage();
+  } catch (err) {
+    if (err.message.includes("400")) {
+      showError("NASA has no image for this date. Try a different date (APOD starts June 16, 1995).");
+    } else if (err.message.includes("429")) {
+      showError("NASA API rate limit reached. Wait a few minutes and try again.");
+    } else if (err.message.includes("503")) {
+      showError("NASA's API is temporarily unavailable. Please try again shortly.");
+    } else {
+      showError(`Something went wrong: ${err.message}`);
+    }
   } finally {
     exploreBtn.textContent = "Explore this date";
     exploreBtn.disabled = false;
